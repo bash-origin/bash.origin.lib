@@ -1,0 +1,14 @@
+{
+  "name": "bash.origin.lib",
+  "version": "0.3.0",
+  "pm": {
+    "publish": "npm"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@pinf-it/inf": "^0.1.14"
+  },
+  "scripts": {
+    "test": "./tests/all.sh"
+  }
+}

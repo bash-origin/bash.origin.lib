@@ -29,12 +29,6 @@ echo "-----"
 echo "binPath: $(bash.origin.lib binPath)"
 echo "nodeModulesPath: $(bash.origin.lib nodeModulesPath)"
 
-echo "binPath[0]: $(bash.origin.lib binPath 0)"
-echo "nodeModulesPath[0]: $(bash.origin.lib nodeModulesPath 0)"
-
-echo "binPath[0.1]: $(bash.origin.lib binPath 0.1)"
-echo "nodeModulesPath[0.1]: $(bash.origin.lib nodeModulesPath 0.1)"
-
 echo "-----"
 
 
@@ -54,16 +48,6 @@ node --eval '
     console.log("LIB.forPackage(basedir).version", LIB.forPackage(basedir).version);
     console.log("LIB.forPackage(basedir).nodeModulesPath", LIB.forPackage(basedir).nodeModulesPath);
     console.log("LIB.forPackage(basedir).nodeModulesPaths", LIB.forPackage(basedir).nodeModulesPaths);
-
-    LIB = require("bash.origin.lib").forPackage(basedir, "0");
-    console.log("LIB.version", LIB.version);
-    LIB = require("bash.origin.lib").forPackage(basedir, "0").forPackage(basedir, "0");
-    console.log("LIB.version", LIB.version);
-
-    LIB = require("bash.origin.lib").forPackage(basedir, "0.1");
-    console.log("LIB.version", LIB.version);
-    LIB = require("bash.origin.lib").forPackage(basedir, "0.1").forPackage(basedir, "0.1");
-    console.log("LIB.version", LIB.version);
 '
 
 echo "OK"

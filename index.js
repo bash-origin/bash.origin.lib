@@ -93,11 +93,14 @@ function ensureInterface (basePath) {
                     const LIB = (this.LIB = makeLIB(packageBasePath));
                     
                     LIB.resolve = function (uri) {
+                        return require.resolve(uri);
+                        /*
                         var uri_parts = uri.split("/");
                         if (!LIB["_path_" + uri_parts[0]]) {
                             throw new Error("Cannot resolve uri '" + uri + "'!");
                         }
                         return PATH.join(LIB["_path_" + uri_parts[0]], uri_parts.slice(1).join("/"));
+                        */
                     };
 
                     LIB.require = function (uri) {

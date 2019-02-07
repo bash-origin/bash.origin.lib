@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 const PATH = require("path");
 const FS = require("fs");
@@ -9,8 +10,6 @@ function ensureInterface (basePath) {
         basePath = PATH.resolve(basePath);
     }
     if (!ensureInterface._cache[basePath]) {
-
-        const aspectCachePath = PATH.join(__dirname, "../..");
 
         function makeLIB (packageBasePath) {
             const code = [
@@ -32,7 +31,7 @@ function ensureInterface (basePath) {
             }
             var basePaths = [
                 PATH.join(packageBasePath, "node_modules"),
-                PATH.join(aspectCachePath, "node_modules")
+                PATH.join(__dirname, "..")
             ];
             basePaths.forEach(function (basePath) {
                 if (!FS.existsSync(basePath)) {
@@ -63,22 +62,22 @@ function ensureInterface (basePath) {
             var API = {
 
                 get version () {
-                    return JSON.parse(FS.readFileSync(PATH.join(aspectCachePath, "package.json"), "utf8")).version;
+                    return JSON.parse(FS.readFileSync(PATH.join(__dirname, "package.json"), "utf8")).version;
                 },
 
                 get nodeModulesPath () {
-                    return PATH.join(aspectCachePath, "node_modules");
+                    return PATH.join(__dirname, "..");
                 },
 
                 get nodeModulesPaths () {
                     return [
                         PATH.join(packageBasePath, "node_modules"),
-                        PATH.join(aspectCachePath, "node_modules")
+                        PATH.join(__dirname, "..")
                     ];
                 },
 
                 get binPath () {
-                    return PATH.join(aspectCachePath, "node_modules/.bin");
+                    return PATH.join(__dirname, "../.bin");
                 },
 
                 resolve: function (uri) {
@@ -112,7 +111,7 @@ function ensureInterface (basePath) {
                     if (
                         !packageBasePath
                     ) {
-                        return makeAPI(installedInfo.declaringPackagePath);
+                        return makeAPI(basePath);
                     }
                     return ensureInterface(packageBasePath).forPackage();
                 }
@@ -121,7 +120,7 @@ function ensureInterface (basePath) {
             return API;
         }
         
-        ensureInterface._cache[basePath] = makeAPI(installedInfo.declaringPackagePath);
+        ensureInterface._cache[basePath] = makeAPI(basePath);
     }
     return ensureInterface._cache[basePath];
 }
@@ -163,3 +162,16 @@ module.exports = {
         return ensureInterface(packageBasePath).forPackage();
     }
 };
+
+
+if (require.main === module) {
+
+    const command = process.argv[2];
+
+    if (command === "binPath") {
+        process.stdout.write(PATH.join(__dirname, "../.bin"));
+    } else
+    if (command === "nodeModulesPath") {
+        process.stdout.write(PATH.join(__dirname, ".."));
+    }
+}

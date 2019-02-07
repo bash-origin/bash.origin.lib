@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
-./01-*/main.sh
+echo -e "\n==> 01-Minimal\n"
+pushd "01-Minimal" > /dev/null
+    ./main.sh
+popd > /dev/null
 
-./02-*/main.sh
+echo -e "\n==> 02-Minimal-Transitive\n"
+pushd "02-Minimal-Transitive" > /dev/null
+    ./main.sh
+popd > /dev/null

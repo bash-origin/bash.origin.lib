@@ -9,6 +9,6 @@
     "@pinf-it/inf": "^0.1.14"
   },
   "scripts": {
-    "test": "./tests/all.sh"
+    "test": "cd tests; ./all.sh"
   }
 }

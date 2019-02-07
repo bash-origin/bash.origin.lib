@@ -1,4 +1,4 @@
-#!/usr/bin/env bash.origin.script
+#!/usr/bin/env bash
 
 echo "TEST_MATCH_IGNORE>>>"
 

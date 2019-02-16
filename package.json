@@ -38,6 +38,6 @@
   },
   "scripts": {
     "install": "lib.json from node_modules > .~lib.json",
-    "test": "cd tests; ./all.sh"
+    "test": "bash.origin.test tests"
   }
 }

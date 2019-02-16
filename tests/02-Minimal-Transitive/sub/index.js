@@ -1,2 +1,2 @@
 
-exports.LIB = require("bash.origin.lib").forPackage(__dirname);
+exports.LIB = require("../../..").forPackage(__dirname);

@@ -5,6 +5,17 @@ const FS = require("fs");
 const LIB_JSON = require("lib.json");
 
 
+function ensureLib (basePath) {
+    ensureLib._cache = ensureLib._cache || {};
+    if (!ensureLib._cache[basePath]) {
+        ensureLib._cache[basePath] = LIB_JSON.forBaseDirs([
+            basePath,
+            __dirname
+        ]);
+    }
+    return ensureLib._cache[basePath];
+}
+
 function ensureInterface (basePath) {
     ensureInterface._cache = ensureInterface._cache || {};
 
@@ -18,7 +29,9 @@ function ensureInterface (basePath) {
 
         function makeAPI (packageBasePath) {
 
-            const LIB = Object.create(LIB_JSON.forBaseDir(packageBasePath));
+            const lib = ensureLib(packageBasePath);
+            const LIB = Object.create(lib);
+
             /*
                 "bin": {
                     "ls": "lscode"
@@ -34,7 +47,7 @@ function ensureInterface (basePath) {
                 }
                 return ensureInterface(packageBasePath).forPackage();
             };
-        
+
             return LIB;
         }
 
@@ -43,7 +56,7 @@ function ensureInterface (basePath) {
     return ensureInterface._cache[basePath];
 }
 
-module.exports = ensureInterface();
+module.exports = ensureInterface(process.cwd());
 
 
 if (require.main === module) {
@@ -51,9 +64,9 @@ if (require.main === module) {
     const name = process.argv[3];
 
     if (command === "resolve.bin") {
-        process.stdout.write(LIB_JSON.forBaseDir(process.cwd()).bin.resolve(name));
+        process.stdout.write(ensureLib(process.cwd()).bin.resolve(name));
     } else
     if (command === "resolve.js") {
-        process.stdout.write(LIB_JSON.forBaseDir(process.cwd()).js.resolve(name));
+        process.stdout.write(ensureLib(process.cwd()).js.resolve(name));
     }
 }

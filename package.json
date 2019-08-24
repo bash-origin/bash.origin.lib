@@ -33,7 +33,7 @@
     "resolve": "^1.10.0",
     "bash.origin.express": "^0.2.0-pre.0",
     "bash.origin.modules": "^0.2.0-pre.0",
-    "bash.origin.test": "^0.2.0-pre.0"
+    "bash.origin.test": "^0.2.0-pre.1"
   },
   "scripts": {
     "install": "lib.json from node_modules > .~lib.json",

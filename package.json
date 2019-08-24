@@ -1,15 +1,12 @@
 {
   "name": "bash.origin.lib",
-  "version": "0.4.0-pre.0",
+  "version": "0.4.0-pre.1",
   "pm": {
     "publish": "npm"
   },
   "main": "index.js",
   "bin": {
-    "bash.origin.lib": "./index.js",
-    "bash.origin": "./node_modules/.bin/bash.origin",
-    "bash.origin.script": "./node_modules/.bin/bash.origin.script",
-    "bash.origin.test": "./node_modules/.bin/bash.origin.test"
+    "bash.origin.lib": "./index.js"
   },
   "dependencies": {
     "@pinf-it/inf": "^0.1.24",

@@ -9,7 +9,7 @@
     "bash.origin.lib": "./index.js"
   },
   "dependencies": {
-    "@pinf-it/inf": "^0.2.0-pre.4",
+    "@pinf-it/inf": "^0.2.0-pre.5",
     "bash.origin": "^0.2.0-pre.1",
     "escape-regexp": "^0.0.1",
     "fs-extra": "^7.0.0",
@@ -31,7 +31,7 @@
     "pinf-loader-js": "^1.0.1",
     "lib.json": "^0.0.6-pre.0",
     "resolve": "^1.10.0",
-    "bash.origin.express": "^0.2.0-pre.0",
+    "bash.origin.express": "^0.2.0-pre.1",
     "bash.origin.modules": "^0.2.0-pre.3",
     "bash.origin.test": "^0.2.0-pre.3"
   },

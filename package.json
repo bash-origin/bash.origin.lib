@@ -1,6 +1,6 @@
 {
   "name": "bash.origin.lib",
-  "version": "0.4.0-pre.8",
+  "version": "0.4.0-pre.9",
   "pm": {
     "publish": "npm"
   },
@@ -33,7 +33,7 @@
     "resolve": "^1.10.0",
     "bash.origin.express": "^0.2.0-pre.1",
     "bash.origin.modules": "^0.2.0-pre.3",
-    "bash.origin.test": "^0.2.0-pre.6"
+    "bash.origin.test": "^0.2.0-pre.7"
   },
   "scripts": {
     "install": "lib.json from node_modules > .~lib.json",

@@ -1,6 +1,6 @@
 {
   "name": "bash.origin.lib",
-  "version": "0.4.0-pre.9",
+  "version": "0.4.0-pre.10",
   "pm": {
     "publish": "npm"
   },
@@ -31,12 +31,11 @@
     "pinf-loader-js": "^1.0.1",
     "lib.json": "^0.0.6-pre.0",
     "resolve": "^1.10.0",
-    "bash.origin.express": "^0.2.0-pre.1",
+    "bash.origin.express": "^0.2.0-pre.2",
     "bash.origin.modules": "^0.2.0-pre.3",
     "bash.origin.test": "^0.2.0-pre.7"
   },
   "scripts": {
-    "install": "lib.json from node_modules > .~lib.json",
     "test": "bash.origin.test tests"
   }
 }

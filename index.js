@@ -2,6 +2,23 @@
 
 const PATH = require("path");
 const FS = require("fs");
+
+
+// TODO: Do this as part of a first-run hook.
+const CHILD_PROCESS = require("child_process");
+if (!FS.existsSync(PATH.join(__dirname, '.~lib.json'))) {
+    if (FS.existsSync(PATH.join(__dirname, 'node_modules/.bin/lib.json'))) {
+        CHILD_PROCESS.execSync('lib.json from node_modules > .~lib.json', {
+            cwd: __dirname
+        });
+    } else {
+        CHILD_PROCESS.execSync('lib.json from node_modules > .~lib.json', {
+            cwd: __dirname
+        });
+    }
+}
+
+
 const LIB_JSON = require("lib.json");
 
 

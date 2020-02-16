@@ -29,7 +29,7 @@
     "minimist": "^1.2.0",
     "waitfor": "^0.1.3",
     "pinf-loader-js": "^1.0.1",
-    "lib.json": "^0.0.6-pre.0",
+    "lib.json": "^0.0.6-pre.1",
     "resolve": "^1.10.0",
     "bash.origin.express": "^0.2.0-pre.2",
     "bash.origin.modules": "^0.2.0-pre.3",

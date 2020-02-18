@@ -3,8 +3,8 @@
 const PATH = require("path");
 const FS = require("fs");
 
-
-// TODO: Do this as part of a first-run hook.
+/*
+// TODO: Run this from 'cwd' after install is complete. (Maybe do this as part of a first-run hook.)
 const CHILD_PROCESS = require("child_process");
 if (!FS.existsSync(PATH.join(__dirname, '.~lib.json'))) {
     if (FS.existsSync(PATH.join(__dirname, 'node_modules/.bin/lib.json'))) {
@@ -17,7 +17,7 @@ if (!FS.existsSync(PATH.join(__dirname, '.~lib.json'))) {
         });
     }
 }
-
+*/
 
 const LIB_JSON = require("lib.json");
 

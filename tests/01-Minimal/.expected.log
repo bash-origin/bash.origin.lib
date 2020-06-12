@@ -3,8 +3,8 @@ bash.origin.lib resolve.bin uuid: TeStLoCaLiZeD/node_modules/uuid/bin/uuid
 bash.origin.lib resolve.js uuid: TeStLoCaLiZeD/node_modules/uuid
 -----
 LIB { forPackage: [Function] }
-LIB.bin.resolve("uuid") TeStLoCaLiZeD/node_modules/uuid/bin/uuid
-LIB.js.resolve("lodash") TeStLoCaLiZeD/node_modules/lodash
-LIB.js.resolve("bash.origin.modules") /christoph/node_modules/bash.origin.modules/compiler.js
-LIB.js.forPackage(__dirname).resolve("lodash") TeStLoCaLiZeD/node_modules/lodash
+LIB.bin.resolve("uuid") .../node_modules/uuid/bin/uuid
+LIB.js.resolve("lodash") .../node_modules/lodash
+LIB.js.resolve("bash.origin.modules") .../node_modules/bash.origin.modules/compiler.js
+LIB.js.forPackage(__dirname).resolve("lodash") .../node_modules/lodash
 OK

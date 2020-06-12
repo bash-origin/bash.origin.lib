@@ -25,11 +25,22 @@ echo "-----"
 node --eval '
     let LIB = require("../..").forPackage(__dirname);
 
+    function normalizePath (path) {
+        const parts = process.cwd().split("/");
+        for (let i=parts.length; i>0; i--) {
+            let subPath = parts.slice(0, i).join("/");
+            if (path.indexOf(subPath) === 0) {
+                return "..." + path.substring(subPath.length);
+            }
+        }
+        throw new Error("We should never get here!");
+    }
+
     console.log("LIB", LIB);
-    console.log("LIB.bin.resolve(\"uuid\")", LIB.bin.resolve("uuid"));
-    console.log("LIB.js.resolve(\"lodash\")", LIB.js.resolve("lodash"));
-    console.log("LIB.js.resolve(\"bash.origin.modules\")", LIB.js.resolve("bash.origin.modules"));
-    console.log("LIB.js.forPackage(__dirname).resolve(\"lodash\")", LIB.forPackage(__dirname).js.resolve("lodash"));
+    console.log("LIB.bin.resolve(\"uuid\")", normalizePath(LIB.bin.resolve("uuid")));
+    console.log("LIB.js.resolve(\"lodash\")", normalizePath(LIB.js.resolve("lodash")));
+    console.log("LIB.js.resolve(\"bash.origin.modules\")", normalizePath(LIB.js.resolve("bash.origin.modules")));
+    console.log("LIB.js.forPackage(__dirname).resolve(\"lodash\")", normalizePath(LIB.forPackage(__dirname).js.resolve("lodash")));
 '
 
 echo "OK"

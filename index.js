@@ -39,7 +39,7 @@ function ensureInterface (basePath) {
     if (!basePath) {
         basePath = process.cwd();
     } else {
-        basePath = PATH.resolve(basePath);
+        basePath = PATH.resolve(process.cwd(), basePath);
     }
 
     if (!ensureInterface._cache[basePath]) {
